@@ -5,13 +5,13 @@
   line-height: 1.5;
   font-weight: 400;
 
-  --primary: #D71921; /* Emirates Red */
+  --primary: #D71921;
   --primary-hover: #B5151B;
-  --accent: #B28D35; /* Desert Gold */
+  --accent: #B28D35;
   --accent-soft: #F4EBD0;
-  --bg-app: #F8F9FA; /* Cloud White */
+  --bg-app: #F8F9FA;
   --bg-card: #FFFFFF;
-  --text-main: #121212; /* Jet Black */
+  --text-main: #121212;
   --text-muted: #6B7280;
   --border: #E5E7EB;
   --white: #FFFFFF;
@@ -51,7 +51,6 @@ h1, h2, h3, h4, .logo span {
   box-sizing: border-box;
 }
 
-/* Scrollbar Style */
 ::-webkit-scrollbar {
   width: 6px;
 }

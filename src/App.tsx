@@ -38,7 +38,6 @@ function App() {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
   const [freteIdToDelete, setFreteIdToDelete] = useState<number | null>(null);
 
-  // Stats Calculations
   const stats = useMemo(() => {
     const totalWeight = fretes.reduce((acc, f) => acc + f.peso, 0);
     const carriers = new Set(fretes.map(f => f.transportadora)).size;
@@ -59,11 +58,9 @@ function App() {
   };
 
   const getTrackingId = (id: number) => {
-    // Generates a consistent 6-digit "random-looking" ID based on the real ID
     return (id * 137 + 5281) % 900000 + 100000;
   };
 
-  // Chart Data: Volume by State
   const stateData = useMemo(() => {
     const data: Record<string, number> = {};
     fretes.forEach(f => {
@@ -72,7 +69,6 @@ function App() {
     return Object.entries(data).map(([name, value]) => ({ name, value }));
   }, [fretes]);
 
-  // Chart Data: Carrier Distribution
   const carrierData = useMemo(() => {
     const data: Record<string, number> = {};
     fretes.forEach(f => {
@@ -83,7 +79,7 @@ function App() {
 
   const recentFretes = useMemo(() => {
     return [...fretes]
-      .sort((a, b) => b.id - a.id) // Sort by ID descending (most recent first)
+    .sort((a, b) => b.id - a.id)
       .slice(0, 4);
   }, [fretes]);
 
@@ -262,7 +258,6 @@ function App() {
 
         {activeTab === 'dashboard' ? (
           <>
-            {/* Stats Grid */}
             <div className="stats-grid">
               <div className="stat-card">
                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '1rem' }}>
@@ -296,7 +291,6 @@ function App() {
               </div>
             </div>
 
-            {/* Charts Section */}
             <div className="charts-section">
               <div className="chart-container">
                 <h3 style={{ marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -469,7 +463,6 @@ function App() {
         )}
       </main>
 
-      {/* Modal Cadastro */}
       {isModalOpen && (
         <div className="modal-overlay">
           <div className="modal-content glass">
@@ -602,7 +595,6 @@ function App() {
         </div>
       )}
 
-      {/* Modal Confirmação Exclusão */}
       {isDeleteModalOpen && (
         <div className="modal-overlay">
           <div className="modal-content glass" style={{ maxWidth: '400px', textAlign: 'center', padding: '3rem' }}>
